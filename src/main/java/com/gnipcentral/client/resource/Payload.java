@@ -87,7 +87,7 @@ public class Payload {
     private String decode(String string) {
         ByteArrayInputStream stream = null;
         try {
-            byte[] bytes = string.getBytes(Charset.forName("UTF-8"));
+            byte[] bytes = string.getBytes("UTF-8");
             bytes = Base64.decodeBase64(bytes);
             stream = new ByteArrayInputStream(bytes);
             GZIPInputStream gis = new GZIPInputStream(stream);

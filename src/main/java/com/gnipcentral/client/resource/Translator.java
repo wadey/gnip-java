@@ -10,6 +10,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 
 public class Translator {
@@ -25,7 +26,11 @@ public class Translator {
     }
 
     public static Activity parseActivity(String input) throws JAXBException {
-        return (Activity) getUnmarshaller().unmarshal(new ByteArrayInputStream(input.getBytes(Charset.forName("UTF-8"))));
+        try {
+            return (Activity) getUnmarshaller().unmarshal(new ByteArrayInputStream(input.getBytes("UTF-8")));
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static Activities parseActivities(InputSource input) throws JAXBException {

@@ -125,7 +125,7 @@ public class HTTPConnection {
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         urlConnection.setRequestMethod(method.name());
         urlConnection.addRequestProperty("Content-Type", "application/xml");
-        urlConnection.addRequestProperty("Authorization", "Basic " + new String(Base64.encodeBase64(getGnipCredentials()), Charset.forName("UTF-8")));
+        urlConnection.addRequestProperty("Authorization", "Basic " + new String(Base64.encodeBase64(getGnipCredentials()), "UTF-8"));
         urlConnection.addRequestProperty("User-Agent", USER_AGENT_STRING);
         urlConnection.setConnectTimeout(2000);
         urlConnection.setReadTimeout(5000);
@@ -138,6 +138,10 @@ public class HTTPConnection {
 
     private byte[] getGnipCredentials() {
         String credentials = config.getUsername() + ":" + config.getPassword();
-        return credentials.getBytes(Charset.forName("UTF-8"));
+        try {
+            return credentials.getBytes("UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
