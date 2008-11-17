@@ -19,7 +19,7 @@ public class Translator {
 
     static {
         try {
-            context = JAXBContext.newInstance(Activities.class, Activity.class, Publishers.class, Publisher.class, Filter.class, Rule.class);
+            context = JAXBContext.newInstance(Activities.class, Activity.class, Error.class, Publishers.class, Publisher.class, Filter.class, Rule.class);
         } catch (JAXBException e) {
             throw new RuntimeException(e);
         }
@@ -31,6 +31,10 @@ public class Translator {
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static Error parseError(InputStream input) throws JAXBException {
+        return (Error) getUnmarshaller().unmarshal(input);
     }
 
     public static Activities parseActivities(InputSource input) throws JAXBException {
