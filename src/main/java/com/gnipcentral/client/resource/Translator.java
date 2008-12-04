@@ -19,7 +19,7 @@ public class Translator {
 
     static {
         try {
-            context = JAXBContext.newInstance(Activities.class, Activity.class, Error.class, Publishers.class, Publisher.class, Filter.class, Rule.class);
+            context = JAXBContext.newInstance(Activities.class, Activity.class, Error.class, Publishers.class, Publisher.class, Filter.class, Rule.class, Rules.class);
         } catch (JAXBException e) {
             throw new RuntimeException(e);
         }
@@ -83,7 +83,6 @@ public class Translator {
         Marshaller marshaller = context.createMarshaller();
         marshaller.setSchema(GnipSchema.schema);
         marshaller.setProperty(Marshaller.JAXB_FRAGMENT, fragment);
-//        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,true);
         return marshaller;
     }
 
