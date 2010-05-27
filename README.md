@@ -1,6 +1,11 @@
-Welcome to Gnip's Java convenience library!
+=IMPORTANT=
+
+This is a very old and outdated library, if you attempt to use it against the current version of Gnip it will not work.
+I'm leaving this code up on github only as a reference.
 
 =Overview=
+
+Welcome to Gnip's Java convenience library!
 
 This library produces a single JAR file called gnip-client-<version>.jar that can be used
 to conveniently access Gnip services. The implementation depends on Java 1.6 features; Java
