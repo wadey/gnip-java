@@ -1,9 +1,9 @@
-=IMPORTANT=
+# IMPORTANT
 
 This is a very old and outdated library, if you attempt to use it against the current version of Gnip it will not work.
 I'm leaving this code up on github only as a reference.
 
-=Overview=
+## Overview
 
 Welcome to Gnip's Java convenience library!
 
@@ -11,7 +11,7 @@ This library produces a single JAR file called gnip-client-<version>.jar that ca
 to conveniently access Gnip services. The implementation depends on Java 1.6 features; Java
 1.5 or earlier environments are not supported.
 
-=Building=
+## Building
 
 Building this library requires maven2. Maven can be downloaded from http://maven.apache.org/.
 
@@ -21,7 +21,7 @@ To clean the library, run: mvn clean
 
 To package the library into its JAR, run: mvn package
 
-=Testing=
+## Testing
 
 To test the library, create the file:
 
